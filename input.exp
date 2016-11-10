@@ -1,0 +1,9 @@
+#!/usr/bin/expect  
+set Sid [lindex $argv 0]
+puts "start to generate crt for:$Sid"
+
+	spawn /opt/easy-rsa/subCA_clients/easyrsa build-client-full $Sid nopass 
+	expect "ca.key:"  
+	send "T-systems@Be1J1ng\r"  
+	expect eof  
+exit
